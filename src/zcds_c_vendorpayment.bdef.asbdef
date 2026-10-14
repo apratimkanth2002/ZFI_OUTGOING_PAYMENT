@@ -1,0 +1,13 @@
+projection;
+strict ( 2 );
+
+use side effects;
+define behavior for ZCDS_C_VENDORPAYMENT alias VendorPayment
+{
+
+use create;
+use update;
+
+  use action proceed;
+  use action refresh;
+}

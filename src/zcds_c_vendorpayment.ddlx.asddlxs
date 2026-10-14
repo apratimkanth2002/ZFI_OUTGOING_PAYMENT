@@ -1,0 +1,150 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  headerInfo: {
+    typeName: 'Vendor Payment',
+    typeNamePlural: 'Vendor Payments',
+    title: { type: #STANDARD, value: 'BeneAccName' },
+    description: { type: #STANDARD, value: 'PaymentRefNo' }
+  },
+  presentationVariant: [{ sortOrder: [{ by: 'PaymentRefNo', direction: #DESC }] }]
+}
+
+annotate entity ZCDS_C_VENDORPAYMENT with
+{
+
+  @UI.facet: [
+    {
+      id:              'Payment',
+      purpose:         #STANDARD,
+      type:            #FIELDGROUP_REFERENCE,
+      label:           'Payment Details',
+      position:        10,
+      targetQualifier: 'PaymentGroup'
+    },
+    {
+      id:              'Response',
+      purpose:         #STANDARD,
+      type:            #FIELDGROUP_REFERENCE,
+      label:           'CPI Response',
+      position:        20,
+      targetQualifier: 'ResponseGroup'
+    }
+  ]
+  
+  //@UI.hidden: true
+  @UI.lineItem: [
+ 
+  { position: 130, type: #FOR_ACTION, dataAction: 'proceed', label: 'Proceed' },
+  { position: 140, type: #FOR_ACTION, dataAction: 'refresh', label: 'Refresh from Proposal' }
+]
+  
+  
+//  @UI.hidden: true
+//  @UI.lineItem: [{ type: #FOR_ACTION, label: 'Process Data', dataAction: 'processData'}
+//                 ,{ type: #FOR_ACTION, hidden: true,label: 'Upload Data', dataAction: 'uploadXLData' }
+//                 ,{ type: #FOR_ACTION, label: 'Post Document', dataAction: 'post_grn' }
+//                 ]
+  
+  @UI.fieldGroup:    [ { qualifier: 'PaymentGroup', position: 10 } ]
+@UI.selectionField: [ { position: 10 } ]
+@EndUserText.label: 'Payment Reference No.'
+PaymentRefNo;
+
+@UI.lineItem:    [ { position: 20 } ]
+@UI.fieldGroup:  [ { qualifier: 'PaymentGroup', position: 20 } ]
+@EndUserText.label: 'Beneficiary Account Name'
+BeneAccName;
+
+@UI.lineItem:    [ { position: 30 } ]
+@UI.fieldGroup:  [ { qualifier: 'PaymentGroup', position: 30 } ]
+@EndUserText.label: 'Beneficiary Account No.'
+BeneAccNo;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 35 } ]
+@EndUserText.label: 'Beneficiary ID'
+BeneId;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 36 } ]
+@UI.lineItem: [{hidden: true}]
+@EndUserText.label: 'Login ID'
+LoginId;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 37 } ]
+@UI.lineItem: [{hidden: true}]
+@EndUserText.label: 'GCIF'
+InputGcif;
+
+@UI.lineItem:   [ { position: 40 } ]
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 40 } ]
+@EndUserText.label: 'Debit Amount'
+InputDebitAmount;
+
+@UI.lineItem:   [ { position: 50 } ]
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 50 } ]
+@EndUserText.label: 'Value Date'
+InputValueDate;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 60 } ]
+@EndUserText.label: 'Transfer Type'
+TransferTypeDesc;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 70 } ]
+@EndUserText.label: 'Beneficiary Bank'
+BeneBank;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 80 } ]
+@EndUserText.label: 'Transaction Type'
+TransactionType;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 90 } ]
+@EndUserText.label: 'Debit Account No.'
+InputDebitOrgAccNo;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 100 } ]
+@EndUserText.label: 'Business Product'
+InputBusinessProd;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 110 } ]
+@EndUserText.label: 'Beneficiary Type'
+BeneType;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 120 } ]
+@EndUserText.label: 'Beneficiary Branch'
+BeneBranch;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 130 } ]
+@EndUserText.label: 'Beneficiary IFSC/IDN Code'
+BeneIdnCode;
+
+@UI.fieldGroup: [ { qualifier: 'PaymentGroup', position: 140 } ]
+@EndUserText.label: 'Payment Run ID'
+paymentrunid;
+
+
+
+@UI.lineItem:        [ { position: 60, criticality: 'StatusCriticality' } ]
+@UI.fieldGroup:      [ { qualifier: 'ResponseGroup', position: 10 } ]
+@UI.selectionField:  [ { position: 20 } ]
+@EndUserText.label: 'Status'
+Status;
+
+@UI.lineItem:   [ { position: 70 } ]
+@UI.fieldGroup: [ { qualifier: 'ResponseGroup', position: 20 } ]
+@EndUserText.label: 'Transaction Status'
+TransactionStatus;
+
+@UI.lineItem:   [ { position: 80 } ]
+@UI.fieldGroup: [ { qualifier: 'ResponseGroup', position: 30 } ]
+@EndUserText.label: 'CBX API Reference No.'
+CbxApiRefNo;
+
+@UI.fieldGroup: [ { qualifier: 'ResponseGroup', position: 40 } ]
+@EndUserText.label: 'Message'
+Message;
+
+@UI.fieldGroup: [ { qualifier: 'ResponseGroup', position: 50 } ]
+@EndUserText.label: 'Last Changed At'
+LocalLastChangedAt;
+
+}

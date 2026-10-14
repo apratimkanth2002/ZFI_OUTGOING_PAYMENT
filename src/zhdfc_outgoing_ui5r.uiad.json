@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "HDFC Outgoing Payment",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "HDFC Outgoing Payment"
+  },
+  "ui5AppDetails": {
+    "appId": "hdfcoutgoing"
+  },
+  "navigation": {
+    "targetMappingId": "ZHDFC_OUTGOING_UI5R_TM",
+    "semanticObject": "ZHDFC_OUTGOING",
+    "action": "ZHDFC_OUTGOING",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZHDFC_OUTGOING_UI5R_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "HDFC Outgoing Payment",
+        "subtitle": "HDFC Outgoing Payment"
+      }
+    }
+  ]
+}

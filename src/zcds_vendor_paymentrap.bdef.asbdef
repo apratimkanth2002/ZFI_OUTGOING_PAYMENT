@@ -1,0 +1,80 @@
+managed implementation in class zbp_i_vendorpayment unique ;
+strict ( 2 );
+
+define behavior for ZCDS_Vendor_PaymentRAP alias VendorPayment
+persistent table zvendor_payment
+lock master
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+//  field ( readonly ) PaymentRefNo, LoginId, InputGcif, TransferTypeDesc, BeneBank,
+//                      InputDebitAmount, InputValueDate, TransactionType,
+//                      InputDebitOrgAccNo, InputBusinessProd, BeneId, BeneAccName,
+//                      BeneAccNo, BeneType, BeneBranch, BeneIdnCode;
+
+//            field( update)CbxApiRefNo;
+//            field(readonly : update)TransactionStatus;
+//            field(readonly : update) status;
+//            field(readonly : update) message;
+            create;
+            update;
+
+
+  action ( features : instance ) proceed result [1] $self;
+   static action refresh;
+
+  mapping for zvendor_payment
+  {
+    PaymentRefNo           = payment_ref_no;
+    LoginId                = login_id;
+    InputGcif              = input_gcif;
+    TransferTypeDesc       = transfer_type_desc;
+    BeneBank               = bene_bank;
+    InputDebitAmount       = input_debit_amount;
+    InputValueDate         = input_value_date;
+    TransactionType        = transaction_type;
+    InputDebitOrgAccNo     = input_debit_org_acc_no;
+    InputBusinessProd      = input_business_prod;
+    BeneId                 = bene_id;
+    BeneAccName            = bene_acc_name;
+    BeneAccNo              = bene_acc_no;
+    BeneType               = bene_type;
+    BeneBranch             = bene_branch;
+    BeneIdnCode            = bene_idn_code;
+    CbxApiRefNo            = cbx_api_ref_no;
+    TransactionStatus      = transaction_status;
+    status                 = status;
+    message                = message;
+    LocalLastChangedAt     = local_last_changed_at;
+    paymentrunid           = paymentrunid;
+  }
+
+//etag master <field_name>
+
+// mapping for zvendor_payment
+//
+// {
+//     LoginId                    = login_id ;
+//     InputGcif                  = input_gcif;
+//     TransferTypeDesc           = transfer_type_desc;
+//     BeneBank                   = bene_bank;
+//     InputDebitAmount           = input_debit_amount;
+//     InputValueDate             = input_value_date;
+//     TransactionType            = transaction_type;
+//     InputDebitOrgAccNo         = input_debit_org_acc_no;
+//     InputBusinessProd          = input_business_prod;
+//     BeneId                     = bene_id;
+//     BeneAccName                = bene_acc_name;
+//     BeneAccNo                  = bene_acc_no;
+//     BeneType                   = bene_type;
+//     BeneBranch                 = bene_branch;
+//     BeneIdnCode                = bene_idn_code;
+//     PaymentRefNo               = payment_ref_no;
+//
+//
+//
+//
+//
+//}
+
+}

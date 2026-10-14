@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition HDFC'
+define service ZSD_HDFC_OUTGOING {
+  expose ZCDS_C_VENDORPAYMENT;
+}
